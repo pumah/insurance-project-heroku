@@ -44,7 +44,7 @@ new Vue({
             flds: [],
         },
         http: {
-            root: 'http://127.0.0.1:8000',
+            root: 'http://insurance-project.herokuapp.com',
         },
         methods: {
             getRisks: function () {this.$http.get('risks/').then(function(response) {this.risks = response.body;})},
