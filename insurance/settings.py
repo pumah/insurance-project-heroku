@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 
-ALLOWED_HOSTS = ['insurance-project.herokuapp.com/','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['insurance-project.herokuapp.com','127.0.0.1','localhost']
 
 
 # Application definition
@@ -84,11 +84,11 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'insurance',
-        'USER': 'mahe',
-        'PASSWORD': 'mahe',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'sql9219993',
+        'USER': 'sql9219993',
+        'PASSWORD': 'ahckdGq9CA',
+        'HOST': 'sql9.freesqldatabase.com',
+        'PORT': '3306',
     }
 }
 
