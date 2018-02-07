@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4/lodash.min.js"></script>
+
+    <title>Risks</title>
+</head>
+
+<body>
+
+
+
+<div id="app">
+<table width=100% height=250px><tr><td width=30% align='center'>
+        <h3>Risk type</h3>
+        <select v-model="riskSelect" @change="riskSelected">
+            <option v-for="(risk, index) in risks" v-bind:value=risk.rfields>${ risk.risk_type }$</option>
+        </select>
+    </ul>
+    </td><td width=70% align='left'>
+    <table> <tr v-for="fld in flds"><td> ${ fld["field_name"] }$ </td>
+            <td></td>
+            <td>
+            <input type="TEXT" v-if="fld['field_type'] === 'TEXT'" />
+            <input type="NUMBER" step=".01" v-else-if="fld['field_type'] === 'DECIMAL'" />
+            <input type="DATE" v-else-if="fld['field_type'] === 'DATE'" />
+            <select v-else-if="fld['field_type'] === 'ENUM'" /></select>
+            </td></tr></table>
+    </td></tr></table>
+</div>
+
+<script>
+
+new Vue({
+       delimiters: ['${', '}$'],
+        el: '#app',
+        data: {
+            risks: [],
+            flds: [],
+        },
+        http: {
+            root: 'http://127.0.0.1:8000',
+        },
+        methods: {
+            getRisks: function () {this.$http.get('risks/').then(function(response) {this.risks = response.body;})},
+            riskSelected: function () {this.flds = this.riskSelect}
+        },
+        mounted: function () {
+            this.getRisks();
+        }
+})
+
+
+</script>
+</body>
+
+</html>
