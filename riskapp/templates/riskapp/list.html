@@ -29,7 +29,7 @@
             <input type="TEXT" v-if="fld['field_type'] === 'TEXT'" />
             <input type="NUMBER" step=".01" v-else-if="fld['field_type'] === 'DECIMAL'" />
             <input type="DATE" v-else-if="fld['field_type'] === 'DATE'" />
-            <select v-else-if="fld['field_type'] === 'ENUM'" /></select>
+            <select v-else-if="fld['field_type'] === 'ENUM'" ><option v-for="(ele, index) in fld['field_metadata'].split(',')">${ ele }$</option></select>
             </td></tr></table>
     </td></tr></table>
 </div>
