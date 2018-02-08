@@ -88,8 +88,8 @@ DATABASES = {
         'NAME': 'sql9219993',
         'USER': 'sql9219993',
         'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': 'sql9.freesqldatabase.com',
-        'PORT': '3306',
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
     }
 }
 
