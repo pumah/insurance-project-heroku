@@ -10,6 +10,7 @@ class risk_type(Model):
         return "{}".format(self.risk_type)
 
 class risk_field(Model):
-    field_name = models.CharField(max_length=255)
+    field_name = models.CharField(max_length=255, blank=False)
     field_type = EnumField(choices=['DATE', 'ENUM', 'DECIMAL', 'TEXT'])
+    field_metadata = models.CharField(max_length=255, default=None, blank=True, null=True)
     risk_type = models.ForeignKey('risk_type',related_name='rfields',on_delete=models.DO_NOTHING)
