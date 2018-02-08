@@ -4,7 +4,7 @@ from .models import risk_type, risk_field
 class riskfldSerializer(serializers.ModelSerializer):
     class Meta:
         model = risk_field
-        fields = ('field_name','field_type')
+        fields = ('field_name','field_type','field_metadata')
 
 class riskSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
@@ -21,5 +21,4 @@ class riskSerializer(serializers.ModelSerializer):
         for rfield_data in rfields_data:
             risk_field.objects.create(risk_type=risk_type, **rfield_data)
         return risk_type
-
-
+    
