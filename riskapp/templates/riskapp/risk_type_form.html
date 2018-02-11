@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new Risk Type</title>
+</head>
+<body>
+<br><br>
+<h2 align="center">Create new Risk type</h2>
+<br>
+<table width=100%>
+<tr><td align="center">
+<form method="post">
+    {% csrf_token %}
+
+    <table>
+        {% for field in form %}
+            <tr align="center">
+                <td>{{ field.label_tag }}</td>
+                <td>{{ field }}</td>
+                <td>{{ field.errors }}</td>
+            </tr>
+        {% endfor %}
+            <td colspan="2" align="center"><br>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</tr></td></table>
+</body>
+</html>

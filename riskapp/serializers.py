@@ -21,4 +21,5 @@ class riskSerializer(serializers.ModelSerializer):
         for rfield_data in rfields_data:
             risk_field.objects.create(risk_type=risk_type, **rfield_data)
         return risk_type
-    
+
+

@@ -1,14 +1,13 @@
 from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
-from .views import CreateView, DetailsView, ReadView
-#from . import views
-#from .views import RiskListView
+from .views import CreateRiskView, DetailsView, ReadView, TypeCreate, RfldCreate
+from . import views
 
 urlpatterns = {
     url(r'^risks/$', ReadView.as_view(), name="read"),
-    #url(r'^risks/$', CreateView.as_view(), name="create"),
-    #url(r'^risks/(?P<pk>[0-9]+)/$', DetailsView.as_view(), name="details"),
-    #url(r'^risk-type/$', views.risk_type, name="risk-type")
+    url(r'^risks/(?P<pk>[0-9]+)/$', DetailsView.as_view(), name="details"),
+    url(r'^RiskTypeCreate/$',views.TypeCreate.as_view(), name='risktypecreate'),
+    url(r'^RiskFieldCreate/$',views.RfldCreate.as_view(), name='riskfieldcreate'),
 }
 
 urlpatterns = format_suffix_patterns(urlpatterns)
